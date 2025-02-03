@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was created in a few hours so its pretty bare bones at the moment, with more time I would add some more style.
+Basically its a simple app centered around the Project table, which is parent to the ProjectHistory table.
+Users who are signed in can create Project History entries that are displayed underneath the Project description.
+A sample conversation can be added if you run rails db:seeds
