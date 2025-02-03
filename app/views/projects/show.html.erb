@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h2>Project Description</h2>
+<%= render @project %>
+
+<h2>Conversation History</h2>
+
+<%= render "project_history_form", project: @project, project_history: ProjectHistory.new %>
+
+<div id="conversation_history">
+  <% @project.project_histories.order(created_at: :desc).each do |ph| %>
+    <div class="conversation_entry">
+      <span class="conversation_user"> <%= ph.user.email_address%> </span>
+      <span class="conversation_date"> <%= ph.created_at%> </span>
+      <span class="conversation_status"> <%= "#{ph.status_before||"[null]"}=>#{ph.status_after||"[null]"}" if ph.status_before != ph.status_after%> </span>
+      <div class="conversation_comment"> <%= ph.comment%> </div>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+  <%= link_to "Back to projects", projects_path %>
+
+  <%= button_to "Destroy this project", @project, method: :delete %>
+</div>

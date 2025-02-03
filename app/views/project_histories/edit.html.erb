@@ -1,0 +1,12 @@
+<% content_for :title, "Editing project history" %>
+
+<h1>Editing project history</h1>
+
+<%= render "form", project_history: @project_history %>
+
+<br>
+
+<div>
+  <%= link_to "Show this project history", @project_history %> |
+  <%= link_to "Back to project histories", project_histories_path %>
+</div>

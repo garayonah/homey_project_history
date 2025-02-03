@@ -1,0 +1,25 @@
+<%= form_with(model: project_history) do |form| %>
+  <% if project_history.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(project_history.errors.count, "error") %> prohibited this project_history from being saved:</h2>
+
+      <ul>
+        <% project_history.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :project_id, value: project.id %>
+  </div>
+
+  <div>
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+    <%= form.label :status_after, value: "Status: " %>
+    <%= form.text_field :status_after, placeholder: project.status %>
+    <%= form.submit "Add Comment" %>
+  </div>
+<% end %>
